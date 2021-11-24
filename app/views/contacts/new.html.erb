@@ -1,0 +1,24 @@
+<h2>Add contacts</h2>
+
+<% if @contact.errors.any? %>
+  <ul>
+    <% @contact.errors.each do |error| %>
+      <li><%= error.full_message %></li>
+    <% end %>
+  </ul>
+<% end %>
+
+<%= form_with model: @contact do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+
+  <%= f.label :email %>
+  <%= f.email_field :email %>
+
+  <%= f.label :message %>
+  <%= f.text_field :message %>
+
+  <%= f.submit 'Send message' %>
+<% end %>
+
+<%#= render 'shared/new' %>
